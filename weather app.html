@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap" rel="stylesheet">
+    <title>Weather app</title>
+</head>
+
+<body class="background">
+    <div class="container seachBar">
+        <div class="row-1">
+            <div class="col-12">
+                <nav class="navbar justify-content-center">
+                    <form class="form-inline" id="your-city">
+                        <input class="form-control mr-sm-2" id="city-search" type="search" placeholder="Search City"
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="current-search"
+                            type="submit">Search</button>
+                    </form>
+                    <div class="row-1">
+                        <div class="col-10" id="currentButton">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Current</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <br />
+    <h1 class="inputLocation" id="searchLocation">
+        London
+    </h1>
+    <h2>
+        12:02pm
+    </h2>
+    <h3>
+        Sunday 18th Oct
+    </h3>
+    <h4>
+        <i class="far fa-sun"></i>
+    </h4>
+    <h5>
+        <div class=headh5>
+            <span class="currentDegree" id="currentDegree">
+                17
+            </span>
+            <span class="degree" id="current-temperature">
+                <a href="" id="celsius">°C</a> |
+                <a href="" id="fahrenheit">°F</a>
+            </span>
+        </div>
+    </h5>
+    <hr>
+    <br />
+    <div class="forecast">
+        <p>
+        <div class="container">
+            <div class="row">
+                <div class="col ">Monday
+                    <div class="row">
+                        <div class="col">
+                            <i class="fas fa-cloud icon"></i>
+                            <div class="row">
+                                <div class="col"> 13°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Tuesday
+                    <div class="row">
+                        <div class="col">
+                            <i class="far fa-sun icon"></i>
+                            <div class="row">
+                                <div class="col"> 20°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Wednesday
+                    <div class="row">
+                        <div class="col">
+                            <i class="fas fa-cloud icon"></i>
+                            <div class="row">
+                                <div class="col"> 15°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Thursday
+                    <div class="row">
+                        <div class="col">
+                            <i class="fas fa-cloud icon"></i>
+                            <div class="row">
+                                <div class="col"> 13°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Friday
+                    <div class="row">
+                        <div class="col">
+                            <i class="fas fa-cloud-showers-heavy icon"></i>
+                            <div class="row">
+                                <div class="col"> 11°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Saturday
+                    <div class="row">
+                        <div class="col">
+                            <i class="fas fa-cloud-showers-heavy icon"></i>
+                            <div class="row">
+                                <div class="col"> 23°C
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </p>
+    </div>
+    <br />
+    <hr>
+    <br />
+    <ul class="container city">
+        <div class="row">
+            <li class="col">Paris</li>
+            <li class="col">New York</li>
+            <li class="col">Beijing</li>
+            <li class="col">Tokyo</li>
+        </div>
+    </ul>
+    <br />
+    <br />
+    <h6>
+        Built by Michelle Wan
+    </h6>
+
+    <script src="src/index.js"></script>
+</body>
+
+</html>
