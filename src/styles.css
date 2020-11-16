@@ -30,7 +30,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+h7 {
   text-align: center;
   font-family: "Bebas Neue", cursive;
 }
@@ -79,6 +80,12 @@ h5 {
 }
 .degree {
   font-size: 20px;
+}
+.windHumid {
+  font-size: 15px;
+  margin: 0px 100px;
+  letter-spacing: 3px;
+  color: #776d8a;
 }
 h6 {
   font-size: 10px;

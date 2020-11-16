@@ -43,7 +43,7 @@ headingDate.innerHTML = nowDate;
 // convert temperature
 
 
-        // search city location
+// search city location
 
 
 function temp(response) {
@@ -51,7 +51,9 @@ console.log(response.data);
 document.querySelector("#searchLocation").innerHTML = response.data.name;
 document.querySelector(".currentDegree").innerHTML = Math.round(
 response.data.main.temp);
-        }
+document.querySelector(".windSpeed").innerHTML= Math.round(response.data.wind.speed);
+document.querySelector(".humidity").innerHTML= response.data.main.humidity;
+}
         
 
 function searchCity (city){
