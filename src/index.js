@@ -43,8 +43,8 @@ headingDate.innerHTML = nowDate;
 // convert temperature
 
 
-// search city location
 
+// search city location
 
 function temp(response) {
 console.log(response.data);
@@ -55,12 +55,22 @@ document.querySelector(".windSpeed").innerHTML= Math.round(response.data.wind.sp
 document.querySelector(".humidity").innerHTML= response.data.main.humidity;
 }
         
+function foreTemp(response1){
+  console.log(response1.data);
+  document.querySelector("#oneTemp").innerHTML = Math.round(response1.data.list[0].main.temp);
+  document.querySelector("#twoTemp").innerHTML = Math.round(response1.data.list[1].main.temp);
+  document.querySelector("#threeTemp").innerHTML = Math.round(response1.data.list[2].main.temp);
+  document.querySelector("#fourTemp").innerHTML = Math.round(response1.data.list[3].main.temp);
+  document.querySelector("#fiveTemp").innerHTML = Math.round(response1.data.list[4].main.temp);
+}
 
 function searchCity (city){
   let unit = "metric";
   let apiKey = "c3d2257e9dc82191e8d794596274f050";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(temp);
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
 }
 
 function searchCitySubmit(event){
@@ -74,6 +84,7 @@ let unit = "metric";
   let apiKey = "c3d2257e9dc82191e8d794596274f050";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(temp);
+  
 }
 
 function showCityPosition(event) {
@@ -89,3 +100,4 @@ form.addEventListener("submit", searchCitySubmit);
 let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", showCityPosition);
 
+// 5 day forwcast
