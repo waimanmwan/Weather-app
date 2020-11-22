@@ -12,7 +12,7 @@ headingTime.innerHTML = currentTime;
 // date
 
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
+console.log(days);
 
 let months = [
   "Jan",
@@ -39,6 +39,13 @@ let nowDate = `${currentDay} ${currentDate} ${currentMonth} , ${currentYear}`;
 let headingDate = document.querySelector("h3");
 headingDate.innerHTML = nowDate;
 
+// forecast days
+document.querySelector("#dayOne").innerHTML= days[1];
+document.querySelector("#dayTwo").innerHTML= days[2];
+document.querySelector("#dayThree").innerHTML= days[3];
+document.querySelector("#dayFour").innerHTML= days[4];
+document.querySelector("#dayFive").innerHTML= days[5];
+
 
 // convert temperature
 
@@ -56,7 +63,7 @@ document.querySelector(".humidity").innerHTML= response.data.main.humidity;
 }
         
 function foreTemp(response1){
-  console.log(response1.data);
+  console.log(response1.data.list[0]);
   document.querySelector("#oneTemp").innerHTML = Math.round(response1.data.list[0].main.temp);
   document.querySelector("#twoTemp").innerHTML = Math.round(response1.data.list[1].main.temp);
   document.querySelector("#threeTemp").innerHTML = Math.round(response1.data.list[2].main.temp);
