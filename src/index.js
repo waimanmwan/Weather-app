@@ -91,7 +91,8 @@ let unit = "metric";
   let apiKey = "c3d2257e9dc82191e8d794596274f050";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(temp);
-  
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
 }
 
 function showCityPosition(event) {
@@ -107,4 +108,51 @@ form.addEventListener("submit", searchCitySubmit);
 let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", showCityPosition);
 
-// 5 day forwcast
+// city link response
+
+function parisReponse(response){
+  let unit = "metric";
+  let apiKey = "c3d2257e9dc82191e8d794596274f050";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=paris&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(temp);
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=paris&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
+}
+
+function newYorkReponse(response){
+  let unit = "metric";
+  let apiKey = "c3d2257e9dc82191e8d794596274f050";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=newyork&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(temp);
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=newyork&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
+}
+
+function beijingReponse(response){
+  let unit = "metric";
+  let apiKey = "c3d2257e9dc82191e8d794596274f050";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=beijing&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(temp);
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=beijing&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
+}
+
+function tokyoReponse(response){
+  let unit = "metric";
+  let apiKey = "c3d2257e9dc82191e8d794596274f050";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=tokyo&appid=${apiKey}&units=${unit}`;
+  axios.get(apiUrl).then(temp);
+  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=${apiKey}&units=${unit}`;
+  axios.get(foreApiUrl).then(foreTemp);
+}
+let parisLink = document.querySelector("#paris");
+parisLink.addEventListener("click", parisReponse);
+
+let newYorkLink = document.querySelector("#newYork");
+newYorkLink.addEventListener("click", newYorkReponse);
+
+let beijingLink = document.querySelector("#beijing");
+beijingLink.addEventListener("click", beijingReponse);
+
+let tokyoLink = document.querySelector("#tokyo");
+tokyoLink.addEventListener("click", tokyoReponse);
