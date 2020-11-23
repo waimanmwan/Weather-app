@@ -49,7 +49,31 @@ document.querySelector("#dayFive").innerHTML= days[5];
 
 // convert temperature
 
+function showFahrenheit(event){
+  event.preventDefault();
+  let fahrenheitTemperature= document.querySelector("#currentDegree");
+  celsiusClick.classList.remove("active");
+  fahrenheitClick.classList.add("active");
+  let fahrenheitShowTemp =(celsiusTemperature *9)/5+32;
+  fahrenheitTemperature.innerHTML= Math.round(fahrenheitShowTemp);
+}
 
+function showCelsius(event){
+  event.preventDefault();
+  celsiusClick.classList.add("active");
+  fahrenheitClick.classList.remove("active");
+  let celsiusShowTemp= document.querySelector("#currentDegree");
+  celsiusShowTemp.innerHTML= Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature=null;
+
+
+let fahrenheitClick= document.querySelector("#fahrenheit");
+fahrenheitClick.addEventListener("click", showFahrenheit);
+
+let celsiusClick= document.querySelector("#celsius");
+celsiusClick.addEventListener("click", showCelsius);
 
 // search city location
 
@@ -60,6 +84,8 @@ document.querySelector(".currentDegree").innerHTML = Math.round(
 response.data.main.temp);
 document.querySelector(".windSpeed").innerHTML= Math.round(response.data.wind.speed);
 document.querySelector(".humidity").innerHTML= response.data.main.humidity;
+ 
+celsiusTemperature= response.data.main.temp;
 }
         
 function foreTemp(response1){
@@ -98,61 +124,13 @@ let unit = "metric";
 function showCityPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
-
 }
 
 let form = document.querySelector("#your-city");
 form.addEventListener("submit", searchCitySubmit);
-
 
 let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", showCityPosition);
 
 // city link response
 
-function parisReponse(response){
-  let unit = "metric";
-  let apiKey = "c3d2257e9dc82191e8d794596274f050";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=paris&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(temp);
-  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=paris&appid=${apiKey}&units=${unit}`;
-  axios.get(foreApiUrl).then(foreTemp);
-}
-
-function newYorkReponse(response){
-  let unit = "metric";
-  let apiKey = "c3d2257e9dc82191e8d794596274f050";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=newyork&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(temp);
-  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=newyork&appid=${apiKey}&units=${unit}`;
-  axios.get(foreApiUrl).then(foreTemp);
-}
-
-function beijingReponse(response){
-  let unit = "metric";
-  let apiKey = "c3d2257e9dc82191e8d794596274f050";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=beijing&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(temp);
-  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=beijing&appid=${apiKey}&units=${unit}`;
-  axios.get(foreApiUrl).then(foreTemp);
-}
-
-function tokyoReponse(response){
-  let unit = "metric";
-  let apiKey = "c3d2257e9dc82191e8d794596274f050";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=tokyo&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(temp);
-  let foreApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=${apiKey}&units=${unit}`;
-  axios.get(foreApiUrl).then(foreTemp);
-}
-let parisLink = document.querySelector("#paris");
-parisLink.addEventListener("click", parisReponse);
-
-let newYorkLink = document.querySelector("#newYork");
-newYorkLink.addEventListener("click", newYorkReponse);
-
-let beijingLink = document.querySelector("#beijing");
-beijingLink.addEventListener("click", beijingReponse);
-
-let tokyoLink = document.querySelector("#tokyo");
-tokyoLink.addEventListener("click", tokyoReponse);
