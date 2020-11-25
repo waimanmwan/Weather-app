@@ -3,7 +3,16 @@ let now = new Date();
 console.log(now);
 
 let currentHours = now.getHours();
+if (currentHours<10){
+currentHours=`0${currentHours}`;
+}
+
+
 let currentMinutes = now.getMinutes();
+if (currentMinutes<10){
+currentMinutes=`0${currentMinutes}`;
+}
+
 
 let currentTime = `${currentHours} : ${currentMinutes}`;
 let headingTime = document.querySelector("h2");
@@ -30,6 +39,7 @@ let months = [
 ];
 
 let currentDay = days[now.getDay()];
+console.log(currentDay);
 let currentMonth = months[now.getMonth()];
 let currentDate = now.getDate();
 let currentYear = now.getFullYear();
@@ -39,12 +49,12 @@ let nowDate = `${currentDay} ${currentDate} ${currentMonth} , ${currentYear}`;
 let headingDate = document.querySelector("h3");
 headingDate.innerHTML = nowDate;
 
-// forecast days
-document.querySelector("#dayOne").innerHTML= days[1];
-document.querySelector("#dayTwo").innerHTML= days[2];
-document.querySelector("#dayThree").innerHTML= days[3];
-document.querySelector("#dayFour").innerHTML= days[4];
-document.querySelector("#dayFive").innerHTML= days[5];
+// forecast days need to amend ????????????????????
+//document.querySelector("#dayOne").innerHTML= days[1];
+//document.querySelector("#dayTwo").innerHTML= days[2];
+//document.querySelector("#dayThree").innerHTML= days[3];
+//document.querySelector("#dayFour").innerHTML= days[4];
+//document.querySelector("#dayFive").innerHTML= days[5];
 
 
 // convert temperature
@@ -185,3 +195,7 @@ beijingLink.addEventListener("click", beijingResponse);
 
 let tokyoLink = document.querySelector("#tokyo");
 tokyoLink.addEventListener("click", tokyoResponse);
+
+//change weather icon
+
+// change background color
