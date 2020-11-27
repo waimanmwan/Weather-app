@@ -48,7 +48,22 @@ let nowDate = `${currentDay} ${currentDate} ${currentMonth} , ${currentYear}`;
 let headingDate = document.querySelector("h3");
 headingDate.innerHTML = nowDate;
 
+function forecastHours(timestamp){
+  let now = new Date(timestamp);
+console.log(now);
 
+let hours = now.getHours();
+if (hours<10){
+hours=`0${hours}`;
+}
+
+
+let minutes = now.getMinutes();
+if (minutes<10){
+minutes=`0${minutes}`;
+}
+  return `${hours}:${minutes}`;
+}
 
 
 // convert temperature
@@ -97,12 +112,30 @@ iconElement.setAttribute("src",
 
 
 function foreTemp(response1){
-  console.log(response1.data.list[2].dt);
-  document.querySelector("#oneTemp").innerHTML = Math.round(response1.data.list[1].main.temp);
-  document.querySelector("#twoTemp").innerHTML = Math.round(response1.data.list[2].main.temp);
-  document.querySelector("#threeTemp").innerHTML = Math.round(response1.data.list[3].main.temp);
-  document.querySelector("#fourTemp").innerHTML = Math.round(response1.data.list[4].main.temp);
-  document.querySelector("#fiveTemp").innerHTML = Math.round(response1.data.list[5].main.temp);
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML =null;
+let forecast=null;
+
+
+for (let index =0; index< 6 ; index++) {
+forecast=response1.data.list[index];
+  forecastElement.innerHTML +=`
+
+
+<div class="col">
+<div class="row" id="forecastHours">
+${forecastHours(forecast.dt *1000)}
+</div>
+<div class="row">
+<img id="forecastIcon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+</div>
+<div class="row" id="forecastTemp">
+${Math.round(forecast.main.temp)}°C
+</div>
+</div>
+
+`; 
+}
 }
 
 function searchCity (city){
@@ -193,7 +226,3 @@ beijingLink.addEventListener("click", beijingResponse);
 
 let tokyoLink = document.querySelector("#tokyo");
 tokyoLink.addEventListener("click", tokyoResponse);
-
-//change weather icon
-
-// change background color
