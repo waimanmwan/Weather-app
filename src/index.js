@@ -39,7 +39,6 @@ let months = [
 ];
 
 let currentDay = days[now.getDay()];
-console.log(currentDay);
 let currentMonth = months[now.getMonth()];
 let currentDate = now.getDate();
 let currentYear = now.getFullYear();
@@ -49,12 +48,7 @@ let nowDate = `${currentDay} ${currentDate} ${currentMonth} , ${currentYear}`;
 let headingDate = document.querySelector("h3");
 headingDate.innerHTML = nowDate;
 
-// forecast days need to amend ????????????????????
-//document.querySelector("#dayOne").innerHTML= days[1];
-//document.querySelector("#dayTwo").innerHTML= days[2];
-//document.querySelector("#dayThree").innerHTML= days[3];
-//document.querySelector("#dayFour").innerHTML= days[4];
-//document.querySelector("#dayFive").innerHTML= days[5];
+
 
 
 // convert temperature
@@ -94,12 +88,16 @@ document.querySelector(".currentDegree").innerHTML = Math.round(
 response.data.main.temp);
 document.querySelector(".windSpeed").innerHTML= Math.round(response.data.wind.speed);
 document.querySelector(".humidity").innerHTML= response.data.main.humidity;
- 
 celsiusTemperature= response.data.main.temp;
+let iconElement=document.querySelector("#currentIcon")
+iconElement.setAttribute("src",
+`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
         
+
+
 function foreTemp(response1){
-  console.log(response1.data.list[0]);
+  console.log(response1.data.list[2].dt);
   document.querySelector("#oneTemp").innerHTML = Math.round(response1.data.list[1].main.temp);
   document.querySelector("#twoTemp").innerHTML = Math.round(response1.data.list[2].main.temp);
   document.querySelector("#threeTemp").innerHTML = Math.round(response1.data.list[3].main.temp);
