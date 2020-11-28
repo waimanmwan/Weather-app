@@ -226,3 +226,6 @@ beijingLink.addEventListener("click", beijingResponse);
 
 let tokyoLink = document.querySelector("#tokyo");
 tokyoLink.addEventListener("click", tokyoResponse);
+
+
+navigator.geolocation.getCurrentPosition(searchLocation);
