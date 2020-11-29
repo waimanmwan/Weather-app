@@ -127,7 +127,7 @@ forecast=response1.data.list[index];
 ${forecastHours(forecast.dt *1000)}
 </div>
 <div class="row">
-<img id="forecastIcon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+<img id="forecastIcon" src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" style="width:50px;"/>
 </div>
 <div class="row" id="forecastTemp">
 ${Math.round(forecast.main.temp)}°C
